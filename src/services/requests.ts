@@ -1,12 +1,12 @@
-import { POSTS_URL } from './resources';
+import { POSTS_URL } from './urls';
 import { APIData, ResponseObject } from '../interfaces';
 
 const errorHandler = (err: Error): ResponseObject => {
   return { isOk: false, text: err.message };
 };
 
-export const getPosts = (): Promise<ResponseObject> => {
-  return fetch(POSTS_URL)
+const fetchData = (URL: URL): Promise<ResponseObject> => {
+  return fetch(URL)
     .then((res: Response): Promise<APIData> | never => {
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
       return res.json();
@@ -18,4 +18,14 @@ export const getPosts = (): Promise<ResponseObject> => {
       };
     })
     .catch(errorHandler);
+};
+
+export const getPosts = async () => {
+  return await fetchData(POSTS_URL);
+};
+
+export const getPost = async (blogId: string) => {
+  const POST_URL = new URL(POSTS_URL);
+  POST_URL.searchParams.set('id', blogId);
+  return await fetchData(POST_URL);
 };
