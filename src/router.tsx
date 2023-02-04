@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { BlogList, PagesSelector } from './components';
-import { Root, ErrorPage, Detail, Blogs, About } from './pages';
+import { Root, ErrorPage, Detail, Blogs, About, Create } from './pages';
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +23,10 @@ export const router = createBrowserRouter([
           {
             path: 'blogDetail/:blogId',
             element: <Detail />,
+          },
+          {
+            path: 'create',
+            element: <Create />,
           },
         ],
       },
