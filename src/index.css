@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+:root {
+  --color-one: #036a8a;
+  --color-two: #3ab1d6;
+  --color-three: #f5bed1;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.w300 {
+  font-weight: 300;
+}
+
+.w600 {
+  font-weight: 600;
+}
+
+.preventDefaultStyle {
+  color: black;
+  text-decoration: none;
+}
+
+.header {
+  padding: 10px 25px;
+  background-color: var(--color-one);
+}
+
+.header__brandLogo {
+  font-size: 25px;
+  color: var(--color-three);
+}
+
+.title {
+  text-align: center;
+  margin: 10px 0;
+  color: var(--color-one);
+}
+
+.subtitle {
+  text-align: start;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  color: var(--color-three);
+}
+
+.genericButton {
+  margin: 20px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--color-one);
+  color: white;
+  cursor: pointer;
+}
+
+.genericButton:hover {
+  background-color: var(--color-two);
+}
+
+.main {
+  padding: 0 50px;
+}
+
+.pages {
+  padding-top: 50px;
+  padding: 50px 50px 0 50px;
+}
+
+.pageButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.blogItem {
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px 10px;
+  margin: 20px 0;
+}
+
+.blogItem__title {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: var(--color-two);
+}
+
+.blogItem__stars {
+  margin-bottom: 10px;
+}
+
+.blogItem__desc {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.blogItem__read {
+  border: 0;
+  background-color: transparent;
+  color: var(--color-one);
+  text-decoration: underline;
+}
