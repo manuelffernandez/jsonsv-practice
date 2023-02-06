@@ -1,8 +1,11 @@
-export interface APIPost {
-  id: number;
+export interface Post {
   title: string;
   body: string;
   likes: number;
+}
+
+export interface APIPost extends Post {
+  id: number;
 }
 
 export type APIData = Array<APIPost>;
