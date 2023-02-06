@@ -10,8 +10,6 @@ export interface APIPost extends Post {
 
 export type APIData = Array<APIPost>;
 
-export interface ResponseObject {
-  isOk: boolean;
-  text?: string;
-  data?: APIData;
-}
+export type ResponseObject =
+  | { isOk: true; data: APIData }
+  | { isOk: false; text: string };
