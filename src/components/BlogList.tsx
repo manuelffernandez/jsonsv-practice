@@ -35,11 +35,9 @@ const BlogList = (): JSX.Element => {
           <Link to={'/'} className='preventDefaultStyle genericButton'>
             Back
           </Link>
-          <button
-            onClick={() => console.log('click')}
-            className='genericButton w300'>
+          <Link to='create' className='preventDefaultStyle genericButton w300'>
             Add a new blog
-          </button>
+          </Link>
         </div>
         <ul>
           {blogs.map(blog => (
