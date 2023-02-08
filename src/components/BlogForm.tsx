@@ -40,7 +40,7 @@ const BlogForm = (): JSX.Element => {
   return (
     <>
       {isLoading ? (
-        <h2 className='title w600'>Publicando...</h2>
+        <h2 className='title w600'>Posting...</h2>
       ) : (
         <>
           <h2 className='subtitle'>Create a new Blog</h2>
