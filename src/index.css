@@ -4,10 +4,19 @@
   --color-one: #036a8a;
   --color-two: #3ab1d6;
   --color-three: #f5bed1;
+  --color-four: #eee;
 }
 
 html {
   font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--color-four);
+}
+
+textarea {
+  resize: none;
 }
 
 .w300 {
@@ -65,21 +74,21 @@ html {
   padding: 0 50px;
 }
 
-.pages {
-  padding-top: 50px;
-  padding: 50px 50px 0 50px;
-}
-
 .pageButtonsContainer {
   display: flex;
   justify-content: space-between;
 }
 
+.pages {
+  padding-top: 50px;
+  padding: 50px 50px 0 50px;
+}
 
 .blogItem {
+  background: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
   list-style: none;
-  border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px 10px;
   margin: 20px 0;
 }
