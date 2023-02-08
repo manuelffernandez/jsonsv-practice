@@ -4,11 +4,11 @@ const PagesSelector = (): JSX.Element => {
   return (
     <div className='pages'>
       <div className='pageButtonsContainer'>
-        <Link to='/blogs' className='preventDefaultStyle genericButton'>
-          Blogs
-        </Link>
         <Link to='about' className='preventDefaultStyle genericButton'>
           About
+        </Link>
+        <Link to='/blogs' className='preventDefaultStyle genericButton'>
+          Blogs
         </Link>
       </div>
     </div>
