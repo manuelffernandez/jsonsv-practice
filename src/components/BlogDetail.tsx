@@ -13,6 +13,7 @@ const INITIAL_STATE = {
 interface BlogDetailStates {
   blog: APIBlog;
   error: string;
+  isLoading: boolean;
 }
 
 interface BlogDetailProps {
@@ -23,9 +24,13 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
   const { blogId } = props;
 
   const [blog, setBlog] = useState<BlogDetailStates['blog']>(INITIAL_STATE);
+  const [isLoading, setIsLoading] =
+    useState<BlogDetailStates['isLoading']>(false);
   const [error, setError] = useState<BlogDetailStates['error']>('');
 
   const handleResponse = (res: ResponseObject) => {
+    setIsLoading(false);
+
     if (res.isOk) {
       setBlog(res.data![0]);
       setError('');
@@ -36,23 +41,33 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
   };
 
   useEffect(() => {
-    getBlog(blogId).then(res => handleResponse(res));
+    getBlog(blogId).then(res => {
+      setIsLoading(true);
+      handleResponse(res);
+    });
   }, []);
+
   return (
     <div>
       {!error ? (
         <>
-          <div className='blogDetail'>
+          <div className='pageButtonsContainer'>
             <Link
               to='/blogs'
               className='preventDefaultStyle genericButton w300'>
               Back
             </Link>
-            <h2 className='subtitle'>{blog?.title}</h2>
           </div>
-          <div className='blogDetail'>
-            <p className='w600'>{blog?.body}</p>
-          </div>
+          {isLoading ? (
+            <h2 className='title w600'>Loading...</h2>
+          ) : (
+            <div className='blogDetail'>
+              <h2 className='subtitle blogDetail__title'>{blog?.title}</h2>
+              <div className='blogDetail__detail'>
+                <p className='w600'>{blog?.body}</p>
+              </div>
+            </div>
+          )}
         </>
       ) : (
         <h1>{error}</h1>

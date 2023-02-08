@@ -7,13 +7,17 @@ import { Link } from 'react-router-dom';
 interface BlogsStates {
   blogs: Array<APIBlog>;
   error: string;
+  isLoading: boolean;
 }
 
 const BlogList = (): JSX.Element => {
   const [blogs, setBlogs] = useState<BlogsStates['blogs']>([]);
   const [error, setError] = useState<BlogsStates['error']>('');
+  const [isLoading, setIsLoading] = useState<BlogsStates['isLoading']>(false);
 
   const handleResponse = (res: ResponseObject) => {
+    setIsLoading(false);
+
     if (res.isOk) {
       setBlogs(res.data as Array<APIBlog>);
       setError('');
@@ -24,6 +28,7 @@ const BlogList = (): JSX.Element => {
 
   useEffect(() => {
     getBlogs().then(res => {
+      setIsLoading(true);
       handleResponse(res);
     });
   }, []);
@@ -39,11 +44,15 @@ const BlogList = (): JSX.Element => {
             Add a new blog
           </Link>
         </div>
-        <ul>
-          {blogs.map(blog => (
-            <BlogItem key={blog.id} blog={blog} />
-          ))}
-        </ul>
+        {isLoading ? (
+          <h2 className='title w600'>Loading...</h2>
+        ) : (
+          <ul>
+            {blogs.map(blog => (
+              <BlogItem key={blog.id} blog={blog} />
+            ))}
+          </ul>
+        )}
       </>
     ) : (
       <h1>{error}</h1>
