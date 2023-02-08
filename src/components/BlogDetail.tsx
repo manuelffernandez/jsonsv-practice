@@ -32,7 +32,7 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
     setIsLoading(false);
 
     if (res.isOk) {
-      setBlog(res.data![0]);
+      setBlog(res.data[0]);
       setError('');
       console.log(blog);
     } else {
