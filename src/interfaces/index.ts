@@ -1,3 +1,3 @@
-import { ResponseObject, APIPost, APIData, Post } from './services';
+import { ResponseObject, APIBlog, APIData, Blog } from './services';
 
-export type { ResponseObject, APIPost, APIData, Post };
+export type { ResponseObject, APIBlog, APIData, Blog };

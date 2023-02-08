@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { ResponseObject, APIPost } from '../interfaces';
-import { getPosts } from '../services/requests';
+import { ResponseObject, APIBlog } from '../interfaces';
+import { getBlogs } from '../services/requests';
 import { BlogItem } from './';
 import { Link } from 'react-router-dom';
 
 interface BlogsStates {
-  blogs: Array<APIPost>;
+  blogs: Array<APIBlog>;
   error: string;
 }
 
@@ -15,7 +15,7 @@ const BlogList = (): JSX.Element => {
 
   const handleResponse = (res: ResponseObject) => {
     if (res.isOk) {
-      setBlogs(res.data as Array<APIPost>);
+      setBlogs(res.data as Array<APIBlog>);
       setError('');
     } else {
       setError(res.text as string);
@@ -23,7 +23,7 @@ const BlogList = (): JSX.Element => {
   };
 
   useEffect(() => {
-    getPosts().then(res => {
+    getBlogs().then(res => {
       handleResponse(res);
     });
   }, []);

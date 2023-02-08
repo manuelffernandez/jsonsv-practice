@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { APIPost, ResponseObject } from '../interfaces';
-import { getPost } from '../services/requests';
+import { APIBlog, ResponseObject } from '../interfaces';
+import { getBlog } from '../services/requests';
 
 const INITIAL_STATE = {
   id: 0,
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 };
 
 interface BlogDetailStates {
-  blog: APIPost;
+  blog: APIBlog;
   error: string;
 }
 
@@ -36,7 +36,7 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
   };
 
   useEffect(() => {
-    getPost(blogId).then(res => handleResponse(res));
+    getBlog(blogId).then(res => handleResponse(res));
   }, []);
   return (
     <div>

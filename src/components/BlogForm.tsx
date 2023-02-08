@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import useForm from '../hooks/useForm';
 import { ResponseObject } from '../interfaces';
-import { addPost } from '../services/requests';
+import { addBlog } from '../services/requests';
 
 interface FormStates {
   isLoading: boolean;
@@ -25,7 +25,7 @@ const BlogForm = (): JSX.Element => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setIsLoading(true);
-    addPost(inputValues).then(handleResponse);
+    addBlog(inputValues).then(handleResponse);
   };
 
   const handleChange = (

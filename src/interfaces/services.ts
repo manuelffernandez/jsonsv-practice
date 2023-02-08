@@ -1,14 +1,14 @@
-export interface Post {
+export interface Blog {
   title: string;
   body: string;
   likes: number;
 }
 
-export interface APIPost extends Post {
+export interface APIBlog extends Blog {
   id: number;
 }
 
-export type APIData = Array<APIPost>;
+export type APIData = Array<APIBlog>;
 
 export type ResponseObject =
   | { isOk: true; data: APIData }

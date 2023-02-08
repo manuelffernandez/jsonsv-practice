@@ -1,6 +1,6 @@
-import { POSTS_URL } from './urls';
+import { BLOGS_URL } from './urls';
 import { APIData, ResponseObject } from '../interfaces';
-import { Post } from '../interfaces/services';
+import { Blog } from '../interfaces/services';
 
 const fetchData = (
   URL: URL,
@@ -22,22 +22,22 @@ const fetchData = (
     });
 };
 
-export const getPosts = async () => {
-  return await fetchData(POSTS_URL);
+export const getBlogs = async () => {
+  return await fetchData(BLOGS_URL);
 };
 
-export const getPost = async (blogId: string) => {
-  const POST_URL = new URL(POSTS_URL);
-  POST_URL.searchParams.set('id', blogId);
-  return await fetchData(POST_URL);
+export const getBlog = async (blogId: string) => {
+  const BLOG_URL = new URL(BLOGS_URL);
+  BLOG_URL.searchParams.set('id', blogId);
+  return await fetchData(BLOG_URL);
 };
 
-export const addPost = async (newPost: Post) => {
+export const addBlog = async (newBlog: Blog) => {
   const OPTIONS = {
     method: 'POST',
-    body: JSON.stringify(newPost),
+    body: JSON.stringify(newBlog),
     headers: { 'Content-Type': 'application/json' },
   };
 
-  return await fetchData(POSTS_URL, OPTIONS);
+  return await fetchData(BLOGS_URL, OPTIONS);
 };

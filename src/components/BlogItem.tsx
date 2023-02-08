@@ -1,8 +1,8 @@
-import { APIPost } from '../interfaces';
+import { APIBlog } from '../interfaces';
 import { Link } from 'react-router-dom';
 
 interface BlogProps {
-  blog: APIPost;
+  blog: APIBlog;
 }
 
 const Blog = (props: BlogProps): JSX.Element => {

@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { Post } from '../interfaces';
+import { Blog } from '../interfaces';
 
 type FormAction =
   | {
@@ -19,7 +19,7 @@ const INITIAL_STATE = {
   likes: 0,
 };
 
-const formReducer = (state: Post, action: FormAction) => {
+const formReducer = (state: Blog, action: FormAction) => {
   switch (action.type) {
     case 'changeValue':
       const { inputName, inputValue } = action.payload;
