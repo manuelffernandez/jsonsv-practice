@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import useForm from '../hooks/useForm';
-import { ResponseObject } from '../interfaces';
+import { postBlog, ResponseObject } from '../interfaces';
 import { addBlog } from '../services/requests';
 
 interface FormStates {
@@ -11,7 +11,7 @@ const BlogForm = (): JSX.Element => {
   const [inputValues, dispatch] = useForm();
   const [isLoading, setIsLoading] = useState<FormStates['isLoading']>(false);
 
-  const handleResponse = (res: ResponseObject): void => {
+  const handleResponse = (res: ResponseObject<postBlog>): void => {
     setIsLoading(false);
 
     if (res.isOk) {

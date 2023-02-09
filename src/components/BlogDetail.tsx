@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { APIBlog, ResponseObject } from '../interfaces';
+import { APIBlog, blogData, ResponseObject } from '../interfaces';
 import { getBlog } from '../services/requests';
 
 const INITIAL_STATE = {
@@ -28,11 +28,11 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
     useState<BlogDetailStates['isLoading']>(false);
   const [error, setError] = useState<BlogDetailStates['error']>('');
 
-  const handleResponse = (res: ResponseObject) => {
+  const handleResponse = (res: ResponseObject<blogData>) => {
     setIsLoading(false);
 
     if (res.isOk) {
-      setBlog(res.data[0]);
+      setBlog(res.blog[0]);
       setError('');
       console.log(blog);
     } else {
