@@ -23,14 +23,18 @@
       "title": "Make a good fetch",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Distinctio vel ducimus fugit deleniti, eligendi earum reprehenderit aperiam nisi ipsa. Recusandae inventore quasi non, delectus voluptatem harum magni provident dolores adipisci rerum laudantium ullam, totam nam quidem error. Officia aut exercitationem, accusantium tempore possimus debitis dolor vel quia aliquam molestiae?",
       "likes": 25
-    }
-  ],
-  "polls": [
+    },
     {
-      "id": 1,
-      "question": "Do you prefer Vite or CRA?",
-      "answerA": "Vite",
-      "answerB": "CRA"
+      "id": 5,
+      "title": "Asynchrony & Event Loop",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Distinctio vel ducimus fugit deleniti, eligendi earum reprehenderit aperiam nisi ipsa. Recusandae inventore quasi non, delectus voluptatem harum magni provident dolores adipisci rerum laudantium ullam, totam nam quidem error. Officia aut exercitationem, accusantium tempore possimus debitis dolor vel quia aliquam molestiae?",
+      "likes": 20
+    },
+    {
+      "id": 6,
+      "title": "Component life cycle",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Distinctio vel ducimus fugit deleniti, eligendi earum reprehenderit aperiam nisi ipsa. Recusandae inventore quasi non, delectus voluptatem harum magni provident dolores adipisci rerum laudantium ullam, totam nam quidem error. Officia aut exercitationem, accusantium tempore possimus debitis dolor vel quia aliquam molestiae?",
+      "likes": 10
     }
   ]
 }
