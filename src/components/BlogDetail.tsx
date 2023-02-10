@@ -34,15 +34,14 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
     if (res.isOk) {
       setBlog(res.blog[0]);
       setError('');
-      console.log(blog);
     } else {
       setError(res.text as string);
     }
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getBlog(blogId).then(res => {
-      setIsLoading(true);
       handleResponse(res);
     });
   }, []);
