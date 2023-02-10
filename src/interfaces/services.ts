@@ -1,8 +1,4 @@
-export interface Blog {
-  title: string;
-  body: string;
-  likes: number;
-}
+import { Blog } from './';
 
 export interface APIBlog extends Blog {
   id: number;

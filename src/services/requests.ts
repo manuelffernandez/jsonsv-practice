@@ -1,16 +1,22 @@
-import { BLOGS_URL } from './urls';
+import { BASE_URL } from './urls';
 import { ResponseObject } from '../interfaces';
-import { Blog, blogData, blogsData, postBlog } from '../interfaces/services';
+import { Blog, blogData, blogsData, postBlog } from '../interfaces';
 
-export const getBlogs = async (): Promise<ResponseObject<blogsData>> => {
+export const getBlogs = async (
+  pageNumber: number,
+  blogsPerPage: number
+): Promise<ResponseObject<blogsData>> => {
+  const BLOGS_URL = new URL(BASE_URL);
+  BLOGS_URL.searchParams.set('_page', pageNumber.toString());
+  BLOGS_URL.searchParams.set('_limit', blogsPerPage.toString());
+
   return await fetch(BLOGS_URL)
-    .then(async (res: Response): Promise<blogsData> | never => {
+    .then((res: Response): Promise<blogsData> | never => {
       if (!res.ok) {
         throw new Error(`${res.status} ${res.statusText}`);
       } else {
-        console.log(res);
         const blogsQty = parseInt(res.headers.get('x-total-count') as string);
-        return await res.json().then(blogs => {
+        return res.json().then(blogs => {
           return {
             blogsQty,
             blogs,
@@ -18,8 +24,8 @@ export const getBlogs = async (): Promise<ResponseObject<blogsData>> => {
         });
       }
     })
-    .then((data): ResponseObject<blogsData> => {
-      return { ...data, isOk: true };
+    .then((blogsData): ResponseObject<blogsData> => {
+      return { ...blogsData, isOk: true };
     })
     .catch((err: Error): ResponseObject<blogsData> => {
       return { isOk: false, text: err.message };
@@ -29,7 +35,7 @@ export const getBlogs = async (): Promise<ResponseObject<blogsData>> => {
 export const getBlog = async (
   blogId: string
 ): Promise<ResponseObject<blogData>> => {
-  const BLOG_URL = new URL(BLOGS_URL);
+  const BLOG_URL = new URL(BASE_URL);
   BLOG_URL.searchParams.set('id', blogId);
 
   return await fetch(BLOG_URL)
@@ -37,11 +43,13 @@ export const getBlog = async (
       if (!res.ok) {
         throw new Error(`${res.status} ${res.statusText}`);
       } else {
-        return res.json();
+        return res.json().then(data => {
+          return { blog: data };
+        });
       }
     })
-    .then((data): ResponseObject<blogData> => {
-      return { ...data, isOk: true };
+    .then((blogData): ResponseObject<blogData> => {
+      return { ...blogData, isOk: true };
     })
     .catch((err: Error): ResponseObject<blogData> => {
       return { isOk: false, text: err.message };
@@ -57,7 +65,7 @@ export const addBlog = async (
     headers: { 'Content-Type': 'application/json' },
   };
 
-  return await fetch(BLOGS_URL, OPTIONS)
+  return await fetch(BASE_URL, OPTIONS)
     .then((res: Response): Promise<postBlog> | never => {
       if (!res.ok) {
         throw new Error(`${res.status} ${res.statusText}`);
