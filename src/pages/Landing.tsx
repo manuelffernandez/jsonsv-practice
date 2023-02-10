@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const PagesSelector = (): JSX.Element => {
+const Landing = (): JSX.Element => {
   return (
     <div className='pages'>
       <div className='pageButtonsContainer'>
@@ -15,4 +15,4 @@ const PagesSelector = (): JSX.Element => {
   );
 };
 
-export default PagesSelector;
+export default Landing;

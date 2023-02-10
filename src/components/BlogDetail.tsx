@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { APIBlog, blogData, ResponseObject } from '../interfaces';
 import { getBlog } from '../services/requests';
 
@@ -16,12 +16,8 @@ interface BlogDetailStates {
   isLoading: boolean;
 }
 
-interface BlogDetailProps {
-  blogId: string;
-}
-
-const BlogDetail = (props: BlogDetailProps): JSX.Element => {
-  const { blogId } = props;
+const BlogDetail = (): JSX.Element => {
+  const { blogId } = useParams();
 
   const [blog, setBlog] = useState<BlogDetailStates['blog']>(INITIAL_STATE);
   const [isLoading, setIsLoading] =
@@ -41,7 +37,8 @@ const BlogDetail = (props: BlogDetailProps): JSX.Element => {
 
   useEffect(() => {
     setIsLoading(true);
-    getBlog(blogId).then(res => {
+    // ts assertion
+    getBlog(blogId as string).then(res => {
       handleResponse(res);
     });
   }, []);

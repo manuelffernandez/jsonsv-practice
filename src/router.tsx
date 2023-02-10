@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { BlogList, PagesSelector } from './components';
-import { Root, ErrorPage, Detail, Blogs, About, Create } from './pages';
+import { BlogList, BlogDetail, Create } from './components';
+import { Root, ErrorPage, Blogs, About, Landing } from './pages';
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PagesSelector />,
+        element: <Landing />,
       },
       {
         path: 'blogs',
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'blogDetail/:blogId',
-            element: <Detail />,
+            element: <BlogDetail />,
           },
           {
             path: 'create',

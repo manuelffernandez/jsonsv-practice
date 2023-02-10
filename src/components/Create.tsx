@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BlogForm } from '../components';
+import { BlogForm } from './';
 
 const Create = (): JSX.Element => {
   return (
