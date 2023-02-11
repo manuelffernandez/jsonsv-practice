@@ -14,7 +14,18 @@ html {
 }
 
 body {
+  height: 100vh;
   background: var(--color-four);
+}
+
+#root {
+  height: 100%;
+}
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 textarea {
@@ -39,6 +50,9 @@ ul li {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 25px;
   background-color: var(--color-one);
 }
@@ -46,6 +60,22 @@ ul li {
 .header__brandLogo {
   font-size: 25px;
   color: var(--color-three);
+}
+
+.header__repoLink {
+  font-size: 25px;
+  color: var(--color-three);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 15px 0;
+  font-size: 1rem;
+  color: white;
+  color: var(--color-three);
+  background: rgb(3,106,138);
 }
 
 .title {
