@@ -15,7 +15,7 @@ const Blog = (props: BlogProps): JSX.Element => {
         <small>Stars: {blog.likes}</small>
       </p>
       <p className='blogItem__desc w300'>{blog.body.slice(0, 215)} . . .</p>
-      <Link to={`blogDetail/${blog.id}`} className='blogItem__read'>
+      <Link to={`/blogs/blogDetail/${blog.id}`} className='blogItem__read'>
         Read more...
       </Link>
     </li>
