@@ -5,7 +5,7 @@
   --color-one-faint: #627d85;
   --color-two: #3ab1d6;
   --color-two-faint: #9cc9d6;
-  --color-three: #f5bed1;
+  --color-three: #eea5bf;
   --color-four: #eee;
 }
 
@@ -94,7 +94,7 @@ ul li {
 }
 
 .main {
-  padding: 0 50px;
+  padding: 0 150px;
 }
 
 .pageButtonsContainer {
@@ -179,6 +179,26 @@ ul li {
 }
 
 .pagesList__list__index-active {
+  cursor: default;
   color: white;
   background-color: var(--color-three);
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.formInput__label {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--color-one);
+}
+
+.formInput__input {
+  border-style: none;
+  line-height: 1.7rem;
+  font-family: 'Montserrat';
+  font-size: 1.2rem;
 }
