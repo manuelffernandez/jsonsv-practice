@@ -6,7 +6,7 @@ Simple blogApp made to practice with json-server and react-router-dom.
 
 The goal of this project is to generate a SPA integrating the concepts of async queries, global states provided by react context and the routing-navigation of 'react-router-dom'
 
-I must make it clear that this project is **not** focused on the aesthetic. All the styles are inside the 'index.css' file.
+I must make it clear that this project is **not** focused on the UI. All the styles are inside the 'index.css' file.
 
 ## Try it out :rocket:
 For this project I used v18.13.0 of NodeJS. There is a *.nvmrc* file to select the correct version with **nvm**. If you don't have it, ensure that you have installed that specific node version.
