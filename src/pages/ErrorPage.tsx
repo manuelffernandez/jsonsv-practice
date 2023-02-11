@@ -1,14 +1,6 @@
 import { useRouteError } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-interface RootObject {
-  data: string;
-  error: string;
-  internal: boolean;
-  status: number;
-  statusText: string;
-}
-
 const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
