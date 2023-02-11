@@ -9,6 +9,9 @@ For this project I used v18.13.0 of NodeJS. There is a *.nvmrc* file to select t
 
 Open a console and type:
 
--  `npm i` to install packages.
+-  `npm i` to install all dependencies.
 -  `npm run start` to start the json-server.
 -  `npm run dev` to run the app.
+
+## Contact me :email:
+#### manufer6503@gmail.com
