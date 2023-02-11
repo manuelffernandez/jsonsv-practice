@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getLastPageContext } from '../contexts/LastPageContext';
 import { APIBlog, blogData, ResponseObject } from '../interfaces';
 import { getBlog } from '../services/requests';
 
@@ -18,6 +19,7 @@ interface BlogDetailStates {
 
 const BlogDetail = (): JSX.Element => {
   const { blogId } = useParams();
+  const { lastPageNumber } = getLastPageContext();
 
   const [blog, setBlog] = useState<BlogDetailStates['blog']>(INITIAL_STATE);
   const [isLoading, setIsLoading] =
@@ -31,6 +33,7 @@ const BlogDetail = (): JSX.Element => {
       setBlog(res.blog[0]);
       setError('');
     } else {
+      // ts assertion
       setError(res.text as string);
     }
   };
@@ -49,7 +52,7 @@ const BlogDetail = (): JSX.Element => {
         <>
           <div className='pageButtonsContainer'>
             <Link
-              to='/blogs'
+              to={`/blogs/${lastPageNumber}`}
               className='preventDefaultStyle genericButton w300'>
               Back
             </Link>
