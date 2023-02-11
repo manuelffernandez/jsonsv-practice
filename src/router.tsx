@@ -13,22 +13,22 @@ export const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: 'blogs',
+        path: 'blogs/:pageNumber',
         element: <Blogs />,
         children: [
           {
             index: true,
             element: <BlogList />,
           },
-          {
-            path: 'blogDetail/:blogId',
-            element: <BlogDetail />,
-          },
-          {
-            path: 'create',
-            element: <Create />,
-          },
         ],
+      },
+      {
+        path: 'blogs/blogDetail/:blogId',
+        element: <BlogDetail />,
+      },
+      {
+        path: 'blogs/create',
+        element: <Create />,
       },
       {
         path: 'about',
