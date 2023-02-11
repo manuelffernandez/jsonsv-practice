@@ -45,27 +45,39 @@ const BlogForm = (): JSX.Element => {
         <>
           <h2 className='subtitle'>Create a new Blog</h2>
           <form action='' onSubmit={handleSubmit}>
-            <label htmlFor='formTitle_id'>aaaaa</label>
-            <input
-              onChange={handleChange}
-              type='text'
-              name='title'
-              id='formTitle_id'
-              placeholder='Blog title'
-              value={inputValues.title}
-              required
-            />
-            <label htmlFor='formBody_id'>bbbbb</label>
-            <textarea
-              onChange={handleChange}
-              value={inputValues.body}
-              name='body'
-              id='formBody_id'
-              placeholder='Blog description'
-              cols={30}
-              rows={10}
-              required></textarea>
-            <button type='submit'>Submit blog</button>
+            <div className='formInput formInput__title'>
+              <label htmlFor='formTitle_id' className=' formInput__label'>
+                Write your title
+              </label>
+              <input
+                onChange={handleChange}
+                type='text'
+                name='title'
+                id='formTitle_id'
+                placeholder='Blog title'
+                value={inputValues.title}
+                required
+                className='paper formInput__input'
+              />
+            </div>
+            <div className='formInput formInput__desc'>
+              <label htmlFor='formBody_id' className='formInput__label'>
+                What is about?
+              </label>
+              <textarea
+                onChange={handleChange}
+                value={inputValues.body}
+                name='body'
+                id='formBody_id'
+                placeholder='Blog description'
+                rows={10}
+                required
+                className='paper formInput__input'
+              />
+              <button type='submit' className='genericButton'>
+                Submit blog
+              </button>
+            </div>
           </form>
         </>
       )}
