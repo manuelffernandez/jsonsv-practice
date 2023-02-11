@@ -1,4 +1,4 @@
-import { Header } from '../components';
+import { Header, Footer } from '../components';
 import { Outlet } from 'react-router-dom';
 
 const Root = (): JSX.Element => {
@@ -8,6 +8,7 @@ const Root = (): JSX.Element => {
       <main className='main'>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 };
