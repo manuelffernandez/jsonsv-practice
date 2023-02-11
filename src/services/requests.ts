@@ -3,18 +3,19 @@ import { ResponseObject } from '../interfaces';
 import { Blog, blogData, blogsData, postBlog } from '../interfaces';
 
 export const getBlogs = async (
-  pageNumber: number,
-  blogsPerPage: number
+  pageNumber: string,
+  blogsPerPage: string
 ): Promise<ResponseObject<blogsData>> => {
   const BLOGS_URL = new URL(BASE_URL);
-  BLOGS_URL.searchParams.set('_page', pageNumber.toString());
-  BLOGS_URL.searchParams.set('_limit', blogsPerPage.toString());
+  BLOGS_URL.searchParams.set('_page', pageNumber);
+  BLOGS_URL.searchParams.set('_limit', blogsPerPage);
 
   return await fetch(BLOGS_URL)
     .then((res: Response): Promise<blogsData> | never => {
       if (!res.ok) {
         throw new Error(`${res.status} ${res.statusText}`);
       } else {
+        // ts assertion
         const blogsQty = parseInt(res.headers.get('x-total-count') as string);
         return res.json().then(blogs => {
           return {
